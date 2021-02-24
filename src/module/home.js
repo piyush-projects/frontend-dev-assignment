@@ -1,29 +1,26 @@
 import React, { Suspense, lazy } from "react";
 import { Switch, Redirect } from "react-router-dom";
+import Header from "utility/header/header";
 import ErrorBoundary from "utility/errorboundary/errorbound";
+import { AuthRoute } from "module/authentication/auth";
+
+const Movies = lazy(() => import("module/movies/movies"));
 
 const Home = () => {
   return (
     <>
       <ErrorBoundary>
-        <div>Home Page</div>
-      </ErrorBoundary>
-      {/* <Header />
-      <Layout>
+        <Header />
         <Suspense fallback={<div>Loading</div>}>
           <Switch>
             <AuthRoute
               exact
-              path="/"
-              render={() => (
-                <ErrorBoundary>
-                  <Redirect to={`/${checkRole(userInfo)}`} />
-                </ErrorBoundary>
-              )}
+              path="/home"
+              component={Movies}
             />
           </Switch>
         </Suspense>
-      </Layout> */}
+      </ErrorBoundary>
     </>
   );
 };

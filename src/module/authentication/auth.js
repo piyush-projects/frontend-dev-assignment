@@ -56,7 +56,13 @@ const getActiveURL = () => {
 axios.interceptors.request.use(
   function (config) {
     const authToken = AuthToken.get();
+    config.headers = {
+      'Content-Type': 'application/json;charset=UTF-8',
+      'Access-Control-Allow-Origin': '*',
+      ...config.headers
+    };
     config.baseUrl = getActiveURL();
+    config.url = `${getActiveURL()}${config.url}`
     if (authToken) {
       config.headers = {
         Authorization: `Bearer ${authToken}`,
@@ -87,7 +93,6 @@ const AuthRoute = ({ component: Component, path, render, ...rest }) => {
     <Route
       {...rest}
       render={() => {
-        debugger;
         return Auth.isLogin() ? (
           Component ? (
             <Component />
