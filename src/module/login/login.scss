@@ -1,0 +1,15 @@
+.login_container {
+    display: flex;
+    height: 100%;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+
+    .credentails {
+        position: relative;
+        top: 45%;
+        padding: 10px 0px;
+        flex-basis: 100%;
+        align-self: center;
+    }
+}
