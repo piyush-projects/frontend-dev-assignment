@@ -9,7 +9,7 @@ const reducer = (state = initialState, result) => {
     case actions.UPDATEMOVIES:
       return {
         ...state,
-        movieList: result.payload.movies
+        movieList: result.payload.movies.length > 0 ? result.payload.movies : []
       };
     default:
       return state;

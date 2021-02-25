@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import StarRatings from "react-star-ratings";
+import Moment from 'react-moment';
 import * as actions from "store/actions";
 import Header from "utility/header/header";
 import { fetchMovies } from "services/movies/movie";
@@ -38,18 +39,20 @@ const MovieDetail = () => {
             <div className="start_rating">
               <StarRatings
                 rating={
-                  movieList.filter((item) => item.title === title)[0]
-                    ?.imdb_rating
+                  Number(movieList.filter((item) => item.title === title)[0]
+                  ?.imdb_rating)/2
                 }
+                starRatedColor="--wombat-yellow"
                 starDimension="30px"
                 starSpacing="5px"
               />
             </div>
           </div>
           <h4 className="heading_layout">
-            {`${
-              movieList.filter((item) => item.title === title)[0]?.released_on
-            } | ${
+          <Moment format="YYYY/MM/DD">
+            {movieList.filter((item) => item.title === title)[0]?.released_on}
+          </Moment>
+            {` | ${
               movieList.filter((item) => item.title === title)[0]?.length
             } | ${
               movieList.filter((item) => item.title === title)[0]?.director

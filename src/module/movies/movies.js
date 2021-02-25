@@ -42,13 +42,15 @@ const Movies = () => {
   useEffect(() => {
     if (movieList.length > 0) {
       setGenreList(createGenreList());
+    } else {
+      setGenreList([]);
     }
   }, [movieList]);
 
   return (
     <>
       <Header />
-      {genreList.map((genreItem, genrekey) => (
+      {genreList.length > 0 ? genreList.map((genreItem, genrekey) => (
         <div key={genrekey}>
           <div className="row">
             <h2>{genreItem.genre}</h2>
@@ -61,7 +63,7 @@ const Movies = () => {
             ))}
           </div>
         </div>
-      ))}
+      )) : <div>No Result Found</div>}
     </>
   );
 };
