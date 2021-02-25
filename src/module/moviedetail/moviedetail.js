@@ -30,9 +30,9 @@ const MovieDetail = () => {
         <div className="description">
           <div className="heading_layout">
             <h2 className="heading">
-              {`${movieList.filter((item) => item.title === title)[0]?.title} ${
+              {`${movieList.filter((item) => item.title === title)[0]?.title} (${
                 movieList.filter((item) => item.title === title)[0]?.imdb_rating
-              }`}
+              })`}
             </h2>
             <div className="start_rating">
               {movieList.filter((item) => item.title === title).length > 0 && (

@@ -11,7 +11,7 @@ const MovieCard = ({ movie }) => {
   return (
     <div className="movie_card" onClick={itemClicked}>
       <img src={movie.poster} width="150px" height="150px" />
-      {movie.title}
+      <span className="title">{movie.title}</span>
     </div>
   );
 };
