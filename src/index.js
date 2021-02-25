@@ -17,17 +17,15 @@ const store = createStore(reducer);
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter basename="/">
-      <>
-        <ErrorBoundary>
-          <Suspense fallback={<div>Loading</div>}>
-            <Switch>
-              <Route exact path="/login" component={Login} />
-              <AuthRoute path="/" component={Home} />
-            </Switch>
-          </Suspense>
-          <MessageContainer />
-        </ErrorBoundary>
-      </>
+      <ErrorBoundary>
+        <Suspense fallback={<div>Loading</div>}>
+          <Switch>
+            <Route exact path="/login" component={Login} />
+            <AuthRoute path="/" component={Home} />
+          </Switch>
+        </Suspense>
+        <MessageContainer />
+      </ErrorBoundary>
     </BrowserRouter>
   </Provider>,
   document.getElementById("component-container")

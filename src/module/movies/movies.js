@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchMovies } from "services/movies/movie";
+import LoadingScreen from 'utility/loadingscreen/loadingscreen';
 import * as actions from "store/actions";
 import MovieCard from "./moviecard/moviecard";
 import "./movies.scss";
@@ -9,6 +10,7 @@ const Movies = () => {
   const dispatch = useDispatch();
   const { movieList } = useSelector((state) => state);
   const [genreList, setGenreList] = useState([]);
+  const [showSpinner, setShowSpinner] = useState(true);
 
   const createGenreList = () => {
     let tempArray = [];
@@ -35,6 +37,7 @@ const Movies = () => {
   useEffect(() => {
     fetchMovies().then((response) => {
       dispatch({ type: actions.UPDATEMOVIES, payload: response.data });
+      setShowSpinner(false);
     });
   }, []);
 
@@ -48,20 +51,26 @@ const Movies = () => {
 
   return (
     <>
-      {genreList.length > 0 ? genreList.map((genreItem, genrekey) => (
-        <div key={genrekey}>
-          <div className="row">
-            <h2>{genreItem.genre}</h2>
+      {showSpinner ? (
+        <LoadingScreen />
+      ) : genreList.length > 0 ? (
+        genreList.map((genreItem, genrekey) => (
+          <div key={genrekey}>
+            <div className="row">
+              <h2>{genreItem.genre}</h2>
+            </div>
+            <div className="card_layout">
+              {genreItem.movies.map((movie, movieKey) => (
+                <div key={movieKey}>
+                  <MovieCard movie={movie} />
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="card_layout">
-            {genreItem.movies.map((movie, movieKey) => (
-              <div key={movieKey}>
-                <MovieCard movie={movie} />
-              </div>  
-            ))}
-          </div>
-        </div>
-      )) : <div>No Result Found</div>}
+        ))
+      ) : (
+        <div>No Result Found</div>
+      )}
     </>
   );
 };
