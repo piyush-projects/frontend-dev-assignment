@@ -1,5 +1,9 @@
 .card_layout {
     display: flex;
     flex-flow: row nowrap;
-    overflow-X: scroll;
+    overflow-X: auto;
+}
+
+.row {
+    padding: 0px 10px;
 }

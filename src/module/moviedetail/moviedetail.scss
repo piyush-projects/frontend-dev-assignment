@@ -1,0 +1,29 @@
+.detail_layout {
+    display: flex;
+    flex-flow: row nowrap;
+
+    .image {
+        flex-basis: 25%;
+        float: left;
+    }
+
+    .description {
+        flex-basis: 65%;
+    }
+
+    .heading_layout {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: baseline;
+        padding-left: 10px;
+
+        .heading {
+            flex-basis: 65%;
+        }
+
+        .start_rating {
+            flex-basis: 25%;
+        }
+    }
+
+}

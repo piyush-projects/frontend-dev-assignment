@@ -11,7 +11,7 @@ const Login = () => {
   const onLogin = () => {
     doLogin(userName, password).then((response) => {
       console.log(response);
-      history.push("/home");
+      history.push("/movies");
     });
   };
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchMovies } from "services/movies/movie";
+import Header from "utility/header/header";
 import * as actions from "store/actions";
 import MovieCard from "./moviecard/moviecard";
 import "./movies.scss";
@@ -34,7 +35,6 @@ const Movies = () => {
 
   useEffect(() => {
     fetchMovies().then((response) => {
-      console.log(response);
       dispatch({ type: actions.UPDATEMOVIES, payload: response.data });
     });
   }, []);
@@ -45,18 +45,25 @@ const Movies = () => {
     }
   }, [movieList]);
 
-  return genreList.map((genreItem) => (
+  return (
     <>
-      <div>
-        <h2>{genreItem.genre}</h2>
-      </div>
-      <div className="card_layout">
-        {genreItem.movies.map((movie) => (
-          <MovieCard movie={movie} />
-        ))}
-      </div>
+      <Header />
+      {genreList.map((genreItem, genrekey) => (
+        <div key={genrekey}>
+          <div className="row">
+            <h2>{genreItem.genre}</h2>
+          </div>
+          <div className="card_layout">
+            {genreItem.movies.map((movie, movieKey) => (
+              <div key={movieKey}>
+                <MovieCard movie={movie} />
+              </div>  
+            ))}
+          </div>
+        </div>
+      ))}
     </>
-  ));
+  );
 };
 
 export default Movies;
