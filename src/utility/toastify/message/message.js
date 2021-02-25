@@ -4,7 +4,7 @@ import 'react-toastify/scss/main.scss'
 
 import classnames from 'classnames';
 
-function MessageContainer() {
+const MessageContainer = () => {
   return (
     <div className="toast-message-container">
       <ToastContainer
