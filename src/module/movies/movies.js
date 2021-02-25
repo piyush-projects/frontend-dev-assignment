@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchMovies } from "services/movies/movie";
-import Header from "utility/header/header";
 import * as actions from "store/actions";
 import MovieCard from "./moviecard/moviecard";
 import "./movies.scss";
@@ -49,7 +48,6 @@ const Movies = () => {
 
   return (
     <>
-      <Header />
       {genreList.length > 0 ? genreList.map((genreItem, genrekey) => (
         <div key={genrekey}>
           <div className="row">

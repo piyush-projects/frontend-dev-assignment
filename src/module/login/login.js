@@ -11,7 +11,7 @@ const Login = () => {
   const onLogin = () => {
     doLogin(userName, password)
       .then((response) => {
-        history.push("/movies");
+        history.push("/");
       })
       .catch((error) => {
         console.error(error);

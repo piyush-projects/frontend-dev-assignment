@@ -6,7 +6,7 @@ const MovieCard = ({ movie }) => {
   const history = useHistory();
 
   const itemClicked = () => {
-    history.push(`/moviedetail/${movie.title}`)
+    history.push(`/movie/${movie.title}`)
   };
   return (
     <div className="movie_card" onClick={itemClicked}>
