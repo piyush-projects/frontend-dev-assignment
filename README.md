@@ -33,3 +33,14 @@ Make sure to include all source code in the repository. To make reviewing easier
 -   Correctness: does the functionality act in sensible, thought-out ways?
 -   Maintainability: is it written in a clean, maintainable way?
 -   Testing: is the system adequately tested?
+
+
+### Running the application
+
+- run **npm start**
+- application will be running on **localhost:8082/login**
+- use username and password as **admin** and **1234**
+- available routes
+    -   /login
+    -   /movie
+    -   /movie/:title
