@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { doLogin } from "services/login/login";
+import  Toast from "utility/toastify/toast";
 import "./login.scss";
 
 const Login = () => {
@@ -12,9 +13,11 @@ const Login = () => {
     doLogin(userName, password)
       .then((response) => {
         history.push("/");
+        Toast.MESSAGE.success(response); 
       })
       .catch((error) => {
         console.error(error);
+        Toast.MESSAGE.error(error); 
       });
   };
 

@@ -1,0 +1,57 @@
+// Toast message classes
+.toast-message-container {
+    width: initial;
+    padding: 0;
+  
+    .toast-container {
+      width: initial;
+      bottom: 35px;
+      @media only screen and (max-width: 730px) {
+        margin-left: 5rem;
+        margin-bottom: 5rem;
+      }
+      padding: 0;
+  
+      .toast-toast {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        width: max-content;
+        max-width: 250px;
+        height: max-content;
+        margin-bottom: 0;
+        padding: 20px;
+        margin-bottom: 10px;
+        font-family: 'NotoSansCJKrLight';
+        font-size: 10pt !important;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: rgba(255, 255, 255, 0.9);
+        box-shadow: none;
+  
+        .toast-body {
+          margin: 0;
+          align-self: center;
+          word-break: break-word;
+          div {
+            div {
+              margin-top: 5px;
+            }
+          }
+        }
+      }
+  
+      .toast-toast button {
+        align-self: center;
+        opacity: 0;
+        width: 0px;
+        height: 0px;
+        overflow: hidden;
+        text-indent: -99999px;
+        &:before {
+          content: '';
+          float: left;
+        }
+      }
+    }
+  }
+
