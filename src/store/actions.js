@@ -1,0 +1,1 @@
+export const UPDATEMOVIES = 'UPDATEMOVIES';

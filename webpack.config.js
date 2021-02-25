@@ -51,6 +51,7 @@ module.exports = {
       utility: path.resolve(__dirname, "./src/utility"),
       services: path.resolve(__dirname, "./src/services"),
       images: path.resolve(__dirname, "./src/images"),
+      store: path.resolve(__dirname, "./src/store"),
     },
   },
   plugins: [

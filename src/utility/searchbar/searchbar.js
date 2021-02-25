@@ -1,15 +1,18 @@
 import React, { useState } from "react";
+import { useDispatch } from 'react-redux';
+import {DebounceInput} from 'react-debounce-input';
 import  SearchIcon  from "images/search.png";
 import { fetchMovies } from 'services/movies/movie'; 
-import {DebounceInput} from 'react-debounce-input';
+import * as actions from 'store/actions';
 import './searchbar.scss';
 
 const SearchBar = () => {
+  const dispatch = useDispatch();
   const [movieName, setMovieName] = useState("");
 
   const searchMovie = (movie) => {
     fetchMovies({q: movie}).then(response => {
-      console.log('searchedMovie', response);
+      dispatch({ type: actions.UPDATEMOVIES , payload: response.data });
     })
     setMovieName(movie);
   }

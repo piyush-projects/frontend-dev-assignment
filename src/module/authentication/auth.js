@@ -6,18 +6,18 @@ const AUTH_TOKEN_KEY = "AUTH_TOKEN";
 
 const AuthToken = {
   get() {
-    return sessionStorage.getItem(AUTH_TOKEN_KEY);
+    return localStorage.getItem(AUTH_TOKEN_KEY);
   },
   set(token) {
-    sessionStorage.setItem(AUTH_TOKEN_KEY, token);
+    localStorage.setItem(AUTH_TOKEN_KEY, token);
   },
   clear() {
-    sessionStorage.removeItem(AUTH_TOKEN_KEY);
+    localStorage.removeItem(AUTH_TOKEN_KEY);
   },
   exist() {
     return (
-      sessionStorage.getItem(AUTH_TOKEN_KEY) !== "expired" &&
-      sessionStorage.getItem(AUTH_TOKEN_KEY) != null
+      localStorage.getItem(AUTH_TOKEN_KEY) !== "expired" &&
+      localStorage.getItem(AUTH_TOKEN_KEY) != null
     );
   },
 };
