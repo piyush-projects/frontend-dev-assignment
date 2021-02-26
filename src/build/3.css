@@ -1,0 +1,6 @@
+.LoadingScreen{height:600px}@media only screen and (max-width: 1024px){.LoadingScreen{display:flex;align-items:center}}.LoadingScreen img{margin:0 auto;width:100px;height:auto}@media only screen and (min-width: 1024px){.LoadingScreen img{position:relative;top:50%;left:50%;margin-left:-100px;margin-top:-200px}}
+
+.movie_card{display:flex;flex-flow:column nowrap;padding:10px}.title{width:150px;word-wrap:break-word}
+
+.card_layout{display:flex;flex-flow:row nowrap;overflow-X:auto}.row{padding:0px 10px}
+

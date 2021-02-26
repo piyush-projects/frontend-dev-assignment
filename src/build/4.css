@@ -1,0 +1,4 @@
+.LoadingScreen{height:600px}@media only screen and (max-width: 1024px){.LoadingScreen{display:flex;align-items:center}}.LoadingScreen img{margin:0 auto;width:100px;height:auto}@media only screen and (min-width: 1024px){.LoadingScreen img{position:relative;top:50%;left:50%;margin-left:-100px;margin-top:-200px}}
+
+.detail_layout{display:flex;flex-flow:row nowrap}.detail_layout .image{flex-basis:25%;float:left}.detail_layout .description{flex-basis:65%}.detail_layout .heading_layout{display:flex;flex-flow:row nowrap;align-items:baseline;padding-left:10px}.detail_layout .heading_layout .heading{flex-basis:65%}.detail_layout .heading_layout .start_rating{flex-basis:25%}
+
